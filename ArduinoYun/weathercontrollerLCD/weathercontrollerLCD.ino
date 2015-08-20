@@ -8,6 +8,8 @@
 #include <math.h>
 #include <LiquidCrystal_I2C.h>
 #include "DHT.h"
+#include <Console.h>
+#include <Process.h>
 
 // Contains Temboo account information
 #include "TembooAccount.h"
@@ -71,7 +73,7 @@ const String SPREADSHEET_TITLE = "Weather Monitor";
 
 // DHT11 sensor pins
 #define DHTPIN 8
-#define DHTTYPE DHT11
+#define DHTTYPE DHT22
 
 // DHT & BMP instances
 DHT dht(DHTPIN, DHTTYPE);
@@ -103,6 +105,7 @@ void setup() {
 
   // Start bridge
   Bridge.begin();
+  Console.begin();
 
   // Start date process
   time = millis();
